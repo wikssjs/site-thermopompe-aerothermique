@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          14 demandes d'installation cette semaine
+          12 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -859,7 +859,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          14 demandes d'installation cette semaine
+          12 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -868,19 +868,19 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <div class="el-footer__links">
           <a href="/odanak">Odanak</a>
           <a href="/saint-pierre-les-becquets">Saint-Pierre-les-Becquets</a>
-          <a href="/lemieux">Lemieux</a>
-          <a href="/grand-saint-esprit">Grand-Saint-Esprit</a>
-          <a href="/saint-zephirin-de-courval">Saint-Zéphirin-de-Courval</a>
-          <a href="/saint-remi-de-tingwick">Saint-Rémi-de-Tingwick</a>
-          <a href="/sainte-eulalie">Sainte-Eulalie</a>
-          <a href="/sainte-clotilde-de-horton">Sainte-Clotilde-de-Horton</a>
-          <a href="/inverness">Inverness</a>
-          <a href="/wolinak">Wôlinak</a>
-          <a href="/fortierville">Fortierville</a>
+          <a href="/notre-dame-de-ham">Notre-Dame-de-Ham</a>
+          <a href="/sainte-seraphine">Sainte-Séraphine</a>
+          <a href="/saint-lucien">Saint-Lucien</a>
+          <a href="/kingsey-falls">Kingsey Falls</a>
           <a href="/sainte-perpetue">Sainte-Perpétue</a>
-          <a href="/sainte-monique">Sainte-Monique</a>
-          <a href="/parisville">Parisville</a>
-          <a href="/saint-valere">Saint-Valère</a>
+          <a href="/laurierville">Laurierville</a>
+          <a href="/saint-cyrille-de-wendover">Saint-Cyrille-de-Wendover</a>
+          <a href="/saint-pie-de-guire">Saint-Pie-de-Guire</a>
+          <a href="/becancour">Bécancour</a>
+          <a href="/drummondville">Drummondville</a>
+          <a href="/saint-guillaume">Saint-Guillaume</a>
+          <a href="/nicolet">Nicolet</a>
+          <a href="/grand-saint-esprit">Grand-Saint-Esprit</a>
         </div>
       </div>
 
@@ -944,6 +944,18 @@ function showStep(n) {
   _fStep = n;
 }
 
+function _fieldErr(inp, msg) {
+  var p = inp.parentNode.querySelector('.form-err');
+  if (!p) { p = document.createElement('p'); p.className = 'form-err'; p.style.cssText = 'font-size:.75rem;color:#ef4444;margin-top:.25rem'; inp.parentNode.appendChild(p); }
+  p.textContent = msg;
+  inp.style.borderColor = '#fca5a5';
+}
+function _clearErr(inp) {
+  var p = inp.parentNode.querySelector('.form-err');
+  if (p) p.remove();
+  inp.style.borderColor = '';
+}
+
 function nextStep(n) {
   var current = document.getElementById('step-' + _fStep);
   if (!current) { showStep(n); return; }
@@ -953,8 +965,24 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       valid = false;
-      inp.style.borderColor = '#fca5a5';
-      inp.addEventListener('input', function() { inp.style.borderColor = ''; }, {once: true});
+      _fieldErr(inp, 'Ce champ est requis.');
+      inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      return;
+    }
+    if (inp.type === 'tel') {
+      var digits = inp.value.replace(/\D/g, '');
+      if (digits.length !== 10) {
+        valid = false;
+        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex: 514 000-0000).');
+        inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      }
+    }
+    if (inp.type === 'email') {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
+        valid = false;
+        _fieldErr(inp, 'Adresse courriel invalide.');
+        inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      }
     }
   });
 
@@ -973,6 +1001,17 @@ function nextStep(n) {
   if (!valid) return;
   showStep(n);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input[type="tel"]').forEach(function(inp) {
+    inp.addEventListener('input', function() {
+      var d = inp.value.replace(/\D/g, '').slice(0, 10);
+      if (d.length <= 3) inp.value = d;
+      else if (d.length <= 6) inp.value = d.slice(0,3) + ' ' + d.slice(3);
+      else inp.value = d.slice(0,3) + ' ' + d.slice(3,6) + '-' + d.slice(6);
+    });
+  });
+});
 
 function prevStep(n) { showStep(n); }
 
