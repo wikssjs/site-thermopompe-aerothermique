@@ -37,7 +37,7 @@
         "name": "Saint-Siméon",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Capitale-Nationale (03)"
+          "name": "Gaspésie--Îles-de-la-Madeleine (11)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Capitale-Nationale (03)",
-          "item": "https://thermopompe-aerothermique.ca/region/capitale-nationale-03"
+          "name": "Gaspésie--Îles-de-la-Madeleine (11)",
+          "item": "https://thermopompe-aerothermique.ca/region/gaspesie-iles-de-la-madeleine-11"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/capitale-nationale-03">Capitale-Nationale (03)</a>
+      <a href="/region/gaspesie-iles-de-la-madeleine-11">Gaspésie--Îles-de-la-Madeleine (11)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Thermopompe Aérothermique Saint-Siméon</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          13 demandes d'installation cette semaine
+          17 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -268,7 +268,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="projet-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="projet-error" style="display:none"
+data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
 </div>
 
 
@@ -286,7 +287,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" required class="el-select">
+  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -301,7 +302,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser / chauffer</label>
-  <select name="superficie" required class="el-select">
+  <select name="superficie" requireddata-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -360,7 +361,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="delai-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="delai-error" style="display:none"
+data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
 </div>
 
 
@@ -413,7 +415,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"required    class="el-input">
+placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -421,7 +423,7 @@ placeholder="Marie Tremblay"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"required    class="el-input">
+placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -429,7 +431,7 @@ placeholder="marie@exemple.com"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"required    class="el-input">
+placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -515,14 +517,14 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 <section class="" style="background:var(--bg);padding-block:4.5rem 5rem;border-bottom:1px solid var(--bdr)">
   <div class="el-wrap-sm">
     <div class="ta-city-intro">
-      <h2>Performer même en janvier : comment les thermopompes actuelles affrontent les -25 °C de Capitale-Nationale</h2>
-<p>Les modèles certifiés « cold climate » d'aujourd'hui ne ressemblent plus aux appareils des années 2000 qui perdaient 40 % de leur rendement sous -15 °C. Les fabricants comme Mitsubishi, Fujitsu et Daikin proposent maintenant des unités garanties jusqu'à -25 °C à -30 °C, avec compresseurs inverter qui modulen la puissance sans arrêts/redémarrages coûteux. À Saint-Siméon et dans Capitale-Nationale (03), cela signifie concrètement que votre thermopompe continue à chauffer efficacement pendant les épisodes froids de janvier, sans basculer constamment sur une résistance électrique auxiliaire. Des capteurs de température régulent l'injection de fluide frigorigène et adaptent le cycle thermodynamique en temps réel. Cette avancée change le bilan énergétique annuel : une thermopompe « cold climate » bien dimensionnée peut couvrir 80 à 90 % de vos besoins de chauffage même avec 4 500 à 5 000 degrés-jours de chauffage, ce qui économise plusieurs milliers de kilowattheures par hiver comparé à la génération précédente.</p>
+      <h2>Quand le mazout ou l'électricité de chauffage pèsent trop lourd : le calcul qui change à Saint-Siméon</h2>
+<p>Dans le secteur de Saint-Siméon, nombre de maisons anciennes fonctionnent encore au mazout ou au chauffage électrique classique, deux systèmes qui creusent le portefeuille chaque janvier. Une thermopompe aérothermique performante réduit drastiquement ces frais, puisqu'elle extraire la chaleur de l'air extérieur plutôt que de la générer par résistance électrique coûteuse. Le programme Rénoclimat de la province reconnaît cette transition et verse des montants progressifs selon la profondeur des travaux; parallèlement, LogisVert d'Hydro-Québec offre des remises directes sur l'achat d'appareils certifiés ENERGY STAR. Pour un propriétaire qui chauffe actuellement au mazout, le retour sur investissement s'accélère grâce à ces aides cumulables, souvent ramenant le surcoût initial à 4 à 7 ans au lieu de 10. Même sans climatisation antérieure, l'économie de chauffage seul justifie l'installation en Gaspésie–Îles-de-la-Madeleine (11), d'autant plus que les factures hivernales y sont parmi les plus salées de la province.</p>
 
-<h2>Un seul appareil pour chasser la chaleur d'été ET le froid d'hiver : le vrai calcul économique pour Saint-Siméon</h2>
-<p>Depuis vingt ans, les hivers rigoureux de Capitale-Nationale (03) cachent aussi des étés où la température grimpe à 28-30 °C pendant trois à six semaines. Beaucoup de propriétaires conservent donc un climatiseur et un chauffage séparé, ce qui signifie deux contrats d'entretien annuels, deux garanties différentes et une consommation parallèle d'électricité. Une thermopompe aérothermique réversible remplace ces deux appareils par un seul système qui change de cycle selon la saison. Le bilan sur 10 ans devient intéressant : un seul entretien annuel (300 à 500 $), une seule unité extérieure à déneiger, pas de clim supplémentaire à entretenir. Pour une maison unifamiliale de 1 200 à 1 800 pi² typique de la région, cette consolidation réduit votre complexité énergétique tout en offrant plus de confort—cooling en juillet, chauffage performant en janvier, sans basculer entre deux systèmes ou deux fournisseurs d'électricité.</p>
+<h2>Janvier à −25 °C : comment les modèles récents tiennent là où les anciens abdiquaient</h2>
+<p>Les vagues de froid réguliers, typiques de Saint-Siméon et du littoral gaspésien, exigent une technologie qui ne baisse pas les bras sous −20 °C. Les thermopompes des dix dernières années, dotées de compresseurs à vitesse variable et de fluides réfrigérants de nouvelle génération, maintiennent entre 70 et 90 % de leur capacité nominale même à −25 °C ou −30 °C, là où la génération précédente chutait à 40 %. Concrètement, cela signifie qu'en plein cœur de janvier, votre pompe continue de chauffer efficacement sans basculer constamment vers la résistance électrique d'appoint, qui dévore l'électricité. Les fabricants comme Daikin, Mitsubishi et Fujitsu publient désormais des courbes de performance certifiées à froid extrême, un gage de fiabilité que les professionnels RBQ de la région peuvent vérifier. Pour les propriétaires de Saint-Siméon qui craignaient autrefois une panne en février, cette évolution change vraiment la donne.</p>
 
-<h2>Rénoclimat et LogisVert : transformer le coût d'installation en investissement intelligent</h2>
-<p>Hydro-Québec LogisVert verse entre 1 200 et 3 500 $ selon le modèle et la zone climatique, et Rénoclimat ajoute des montants variables en fonction de la performance énergétique atteinte après travaux. Pour Saint-Siméon, situé en Capitale-Nationale (03), ces deux programmes couvrent souvent 25 à 40 % du coût d'installation d'une thermopompe efficace. Il faut ajouter la possibilité de financement sans intérêt à travers la CÉRA/greener homes loan lors des appels actifs, ou des prêts municipalités/régionaux selon les cycles d'admissibilité. L'erreur courante : attendre l'automne quand les installateurs sont saturés et les délais s'allongent. Planifier au printemps permet de peaufiner votre demande de subvention pendant que les entrepreneurs ont de la visibilité, de valider votre éligibilité avant juin et d'installer l'été pour jouir du refroidissement dès juillet et du chauffage dès octobre. Une thermopompe « cold climate » bien subventionnée se rentabilise en 6 à 9 ans sur la différence entre le chauffage électrique résistif et la thermopompe, sans compter le confort climatisé en bonus.</p>
+<h2>Un seul appareil pour l'été étouffant et l'hiver glacial : pourquoi la thermopompe réversible fait sens dans Gaspésie–Îles-de-la-Madeleine (11)</h2>
+<p>Bien que Saint-Siméon soit surtout réputée pour ses hivers, les vagues de chaleur estivales y surviennent avec une intensité croissante, créant un besoin réel de refroidissement. Plutôt que de maintenir un climatiseur mural et un radiateur électrique ou un chauffage au propane, une thermopompe aérothermique réversible assure les deux fonctions : chauffage en hiver, climatisation en été. Cette fusion réduit les contrats de maintenance à un seul, élimine le stockage de deux appareils et simplifie le dépannage d'urgence—un avantage tangible dans une région où les délais d'intervention peuvent être plus longs qu'en milieu urbain. Un propriétaire n'a plus à attendre septembre pour faire vérifier son chauffage avant les froids : un entretien annuel unique, idéalement au printemps, suffit. Pour les maisons typiques de 1 000 à 1 400 pi² dans le secteur, ce gain en praticité et en fiabilité s'ajoute aux économies de fonctionnement.</p>
     </div>
   </div>
 </section>
@@ -859,28 +861,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          13 demandes d'installation cette semaine
+          17 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Thermopompe en Capitale-Nationale (03)</h4>
+        <h4 class="el-footer__col-label">Thermopompe en Gaspésie--Îles-de-la-Madeleine (11)</h4>
         <div class="el-footer__links">
-          <a href="/saint-aime-des-lacs">Saint-Aimé-des-Lacs</a>
-          <a href="/saint-basile">Saint-Basile</a>
-          <a href="/saint-urbain">Saint-Urbain</a>
-          <a href="/saint-leonard-de-portneuf">Saint-Léonard-de-Portneuf</a>
-          <a href="/saint-joachim">Saint-Joachim</a>
-          <a href="/wendake">Wendake</a>
-          <a href="/saint-thuribe">Saint-Thuribe</a>
-          <a href="/saint-tite-des-caps">Saint-Tite-des-Caps</a>
-          <a href="/saint-gabriel-de-valcartier">Saint-Gabriel-de-Valcartier</a>
-          <a href="/linton">Linton</a>
-          <a href="/sainte-famille-de-l-ile-d-orleans">Sainte-Famille-de-l'Île-d'Orléans</a>
-          <a href="/saint-gilbert">Saint-Gilbert</a>
-          <a href="/saint-pierre-de-l-ile-d-orleans">Saint-Pierre-de-l'Île-d'Orléans</a>
-          <a href="/lac-croche">Lac-Croche</a>
-          <a href="/lac-delage">Lac-Delage</a>
+          <a href="/la-martre">La Martre</a>
+          <a href="/les-iles-de-la-madeleine">Les Îles-de-la-Madeleine</a>
+          <a href="/riviere-saint-jean">Rivière-Saint-Jean</a>
+          <a href="/paspebiac">Paspébiac</a>
+          <a href="/sainte-therese-de-gaspe">Sainte-Thérèse-de-Gaspé</a>
+          <a href="/murdochville">Murdochville</a>
+          <a href="/mont-saint-pierre">Mont-Saint-Pierre</a>
+          <a href="/port-daniel-gascons">Port-Daniel--Gascons</a>
+          <a href="/matapedia">Matapédia</a>
+          <a href="/saint-alphonse">Saint-Alphonse</a>
+          <a href="/grande-vallee">Grande-Vallée</a>
+          <a href="/grosse-ile">Grosse-Île</a>
+          <a href="/riviere-nouvelle">Rivière-Nouvelle</a>
+          <a href="/riviere-bonaventure">Rivière-Bonaventure</a>
+          <a href="/mont-alexandre">Mont-Alexandre</a>
         </div>
       </div>
 
@@ -888,7 +890,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/capitale-nationale-03">Capitale-Nationale (03)</a>
+          <a href="/region/gaspesie-iles-de-la-madeleine-11">Gaspésie--Îles-de-la-Madeleine (11)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -897,7 +899,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 
     <div class="el-footer__bottom">
       <p>© 2026 Thermopompe Aérothermique Québec · Tous droits réservés</p>
-      <p>Thermopompe Aérothermique · Saint-Siméon · Capitale-Nationale (03)</p>
+      <p>Thermopompe Aérothermique · Saint-Siméon · Gaspésie--Îles-de-la-Madeleine (11)</p>
     </div>
   </div>
 </footer>
@@ -1022,7 +1024,7 @@ function _showRadioErr(errEl, groupName, stepEl) {
   while (errEl.firstChild) errEl.removeChild(errEl.firstChild);
   errEl.appendChild(_mkSvg('warn'));
   var span = document.createElement('span');
-  span.textContent = 'Veuillez faire un choix.';
+  span.textContent = errEl.dataset.errMsg || 'Veuillez faire un choix.';
   errEl.appendChild(span);
   stepEl.querySelectorAll('input[name="' + groupName + '"]').forEach(function(r) {
     r.addEventListener('change', function() { errEl.style.display = 'none'; }, {once: true});
@@ -1051,7 +1053,7 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       errCount++;
-      _fieldErr(inp, 'Ce champ est requis.');
+      _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       return;
     }
@@ -1059,14 +1061,14 @@ function nextStep(n) {
       var digits = inp.value.replace(/\D/g, '');
       if (digits.length !== 10) {
         errCount++;
-        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
+        _fieldErr(inp, inp.dataset.errFormat || 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
     if (inp.type === 'email') {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
         errCount++;
-        _fieldErr(inp, 'Adresse courriel invalide.');
+        _fieldErr(inp, inp.dataset.errFormat || 'Adresse courriel invalide.');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
@@ -1155,6 +1157,11 @@ if (_stickyBar) {
       document.querySelectorAll('.el-faq-item.is-open').forEach(function(i){i.classList.remove('is-open');});
       if(!isOpen)item.classList.add('is-open');
     });
+  });
+})();
+</script>
+</body>
+</html>);
   });
 })();
 </script>

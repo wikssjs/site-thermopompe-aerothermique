@@ -37,7 +37,7 @@
         "name": "Saint-Donat",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Lanaudière (14)"
+          "name": "Bas-Saint-Laurent (01)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Lanaudière (14)",
-          "item": "https://thermopompe-aerothermique.ca/region/lanaudiere-14"
+          "name": "Bas-Saint-Laurent (01)",
+          "item": "https://thermopompe-aerothermique.ca/region/bas-saint-laurent-01"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/lanaudiere-14">Lanaudière (14)</a>
+      <a href="/region/bas-saint-laurent-01">Bas-Saint-Laurent (01)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Thermopompe Aérothermique Saint-Donat</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          17 demandes d'installation cette semaine
+          16 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -268,7 +268,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="projet-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="projet-error" style="display:none"
+data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
 </div>
 
 
@@ -286,7 +287,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" required class="el-select">
+  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -301,7 +302,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser / chauffer</label>
-  <select name="superficie" required class="el-select">
+  <select name="superficie" requireddata-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -360,7 +361,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="delai-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="delai-error" style="display:none"
+data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
 </div>
 
 
@@ -413,7 +415,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"required    class="el-input">
+placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -421,7 +423,7 @@ placeholder="Marie Tremblay"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"required    class="el-input">
+placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -429,7 +431,7 @@ placeholder="marie@exemple.com"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"required    class="el-input">
+placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -515,18 +517,20 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 <section class="" style="background:var(--bg);padding-block:4.5rem 5rem;border-bottom:1px solid var(--bdr)">
   <div class="el-wrap-sm">
     <div class="ta-city-intro">
-      <div class="thermopompe-saint-donat-content">
+      <section>
+  <h2>Janvier à -20°C : comment une thermopompe performante tient vraiment le coup en Bas-Saint-Laurent</h2>
+  <p>Les hivers du Bas-Saint-Laurent (01) ne pardonnent pas : dès que le mercure plonge sous -15°C, les anciens modèles de thermopompes perdent rapidement leur efficacité et basculent sur la résistance électrique d'appoint. À Saint-Donat, où janvier affiche régulièrement des minimales de -17°C à -20°C, cette question du rendement à froid devient décisive. Les appareils actuels de gamme supérieure maintiennent 70 à 80% de leur capacité nominale même à -25°C, grâce aux compresseurs inverter et aux fluides frigorigènes nouvelle génération. Concrètement, cela signifie qu'une thermopompe dimensionnée correctement consomme beaucoup moins d'appoint électrique qu'il y a dix ans, réduisant les pics de consommation en janvier et février. C'est la différence entre un appareil qui chauffe efficacement tout l'hiver et un qui se transforme en radiateur coûteux dès le premier froid intense.</p>
+</section>
 
-  <h2>Quand deux systèmes deviennent un seul : l'avantage climatique de Lanaudière</h2>
-  <p>Dans la région 14, les hivers rigoureux côtoient des étés où les pics de chaleur deviennent récurrents. Les propriétaires de Saint-Donat gèrent souvent deux appareils distincts : un système de chauffage principal et, s'ils ont la chance d'en avoir un, un climatiseur saisonnier. Une aérothermique haute performance consolide ces deux fonctions en une seule unité intelligente. Cet avantage se traduit par un seul contrat d'entretien annuel, une garantie unique, et surtout l'absence de redondance coûteuse. Pendant les quelques semaines de canicule estivale, l'appareil fonctionne en mode refroidissement avec un COP excellent. Dès octobre, il bascule progressivement vers le chauffage, sans interruption de service. Sur dix ans, cette polyvalence réduit les frais administratifs, les appels de dépannage, et crée une gestion thermique véritablement intégrée au rythme du climat lanaudois.</p>
+<section>
+  <h2>Deux appareils en un : éliminer le vieux chauffage ET le climatiseur en une seule installation</h2>
+  <p>Beaucoup de maisons rurales du Bas-Saint-Laurent (01) traînent encore deux systèmes : un foyer au mazout ou un chauffage électrique baseboard pour l'hiver, et parfois un climatiseur de fenêtre qui devient indispensable lors des rares canicules estivales. Remplacer ces deux équipements par une thermopompe murale ou centrale offre non seulement un confort accru en toute saison, mais aussi un seul contrat d'entretien annuel, une seule facture d'intervention en cas de panne, et zéro redondance. À Saint-Donat, où les étés peuvent devenir inconfortables malgré la saison courte, cette polyvalence transforme le rapport qualité-prix. Un installateur certifié vérifiera que votre maison bénéficie d'une isolation suffisante et d'une distribution d'air adaptée, mais l'élimination d'un vieux foyer lourd et inefficace représente déjà une libération immédiate et une réduction de maintenance.</p>
+</section>
 
-  <h2>Le froid de janvier à Saint-Donat : ce que les thermopompes modernes peuvent vraiment faire</h2>
-  <p>Les minimales de janvier oscillent régulièrement autour de -12 °C à Joliette, avec des épisodes de -20 °C à -25 °C qui peuvent durer plusieurs jours consécutifs. Pendant longtemps, les aérothermiques perdaient 40 à 50 % de leur capacité à ces températures, forçant un recours presque continu aux résistances électriques coûteuses. Les modèles dits "cold climate" actuels conservent 70 à 85 % de leur puissance jusqu'à -25 °C, et certains restent efficaces à -30 °C. Cette amélioration est capitale pour Saint-Donat : elle signifie qu'en pleine vague de froid, l'appareil n'appelle pas immédiatement l'appoint électrique, ce qui limite considérablement la facture de chauffage. Un installateur qualifié en Lanaudière (14) peut vous montrer des relevés réels de consommation provenant de maisons similaires, ce qui donne une bien meilleure idée du comportement hivernal réel que les spécifications du fabricant.</p>
-
-  <h2>Subventions Rénoclimat et LogisVert : comment vraiment les obtenir à Saint-Donat</h2>
-  <p>Rénoclimat évalue votre maison avant et après installation, et le montant d'aide dépend des gains de performance énergétique mesurés : une thermopompe haute performance ajoutée à un chauffage électrique existant génère des gains clairs, tandis qu'un remplacement de mazout sera encore plus avantageux. LogisVert d'Hydro-Québec verse des montants fixes selon l'équipement et sa performance certifiée, indépendamment du devis. Pour les propriétaires de Saint-Donat qui chauffent au propane ou au mazout, ces deux programmes se combinent, ce qui rend le projet singulièrement rentable : vous pouvez espérer un retour sur investissement en 7 à 10 ans au lieu de 15. L'important est de consulter un partenaire certifié qui connaît les critères actuels, car les programmes évoluent. Ne pas enclencher les démarches avant le devis d'installation, c'est risquer des délais ou des incompatibilités administratives. La plupart des bons installateurs de Lanaudière (14) gèrent ces dossiers directement, ce qui accélère dramatiquement le processus de réclamation.</p>
-
-</div>
+<section>
+  <h2>Le dimensionnement exact : pourquoi se tromper de quelques milliers de BTU coûte cher pendant dix ans</h2>
+  <p>Sous-dimensionner une thermopompe pour économiser à l'achat est un piège classique : l'appareil fonctionnera constamment à pleine capacité, usera ses composants plus vite et sollicitera beaucoup plus souvent l'appoint électrique coûteux. Sur-dimensionner crée des cycles courts, une consommation inutile et une facture d'installation gonflée. À Saint-Donat comme partout en Bas-Saint-Laurent (01), avec 6 000 à 7 000 degrés-jours de chauffage et des maisons souvent bâties avant 1980, seul un calcul de charge thermique complet—prenant en compte l'isolation réelle, les ponts thermiques, l'orientation et la masse thermique—peut garantir le bon choix. Un bon installateur RBQ certifié en réfrigération n'hésitera pas à passer du temps sur cette analyse, quitte à revenir sur site en hiver pour vérifier le comportement réel. Ce surcoût initial (quelques heures de diagnostic) s'amortit rapidement en consommation évitée et en fiabilité de l'équipement sur une décennie.</p>
+</section>
     </div>
   </div>
 </section>
@@ -863,28 +867,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          17 demandes d'installation cette semaine
+          16 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Thermopompe en Lanaudière (14)</h4>
+        <h4 class="el-footer__col-label">Thermopompe en Bas-Saint-Laurent (01)</h4>
         <div class="el-footer__links">
-          <a href="/lac-matawin">Lac-Matawin</a>
-          <a href="/mandeville">Mandeville</a>
-          <a href="/berthierville">Berthierville</a>
-          <a href="/notre-dame-de-la-merci">Notre-Dame-de-la-Merci</a>
-          <a href="/crabtree">Crabtree</a>
-          <a href="/lac-legendre">Lac-Legendre</a>
-          <a href="/baie-obaoca">Baie-Obaoca</a>
-          <a href="/saint-thomas">Saint-Thomas</a>
-          <a href="/saint-jacques">Saint-Jacques</a>
-          <a href="/lanoraie">Lanoraie</a>
-          <a href="/saint-zenon">Saint-Zénon</a>
-          <a href="/sainte-elisabeth">Sainte-Élisabeth</a>
-          <a href="/chertsey">Chertsey</a>
-          <a href="/lac-du-taureau">Lac-du-Taureau</a>
-          <a href="/saint-felix-de-valois">Saint-Félix-de-Valois</a>
+          <a href="/la-redemption">La Rédemption</a>
+          <a href="/lac-des-eaux-mortes">Lac-des-Eaux-Mortes</a>
+          <a href="/saint-medard">Saint-Médard</a>
+          <a href="/baie-des-sables">Baie-des-Sables</a>
+          <a href="/saint-joseph-de-lepage">Saint-Joseph-de-Lepage</a>
+          <a href="/lac-matapedia">Lac-Matapédia</a>
+          <a href="/cacouna">Cacouna</a>
+          <a href="/la-pocatiere">La Pocatière</a>
+          <a href="/biencourt">Biencourt</a>
+          <a href="/saint-pascal">Saint-Pascal</a>
+          <a href="/packington">Packington</a>
+          <a href="/riviere-du-loup">Rivière-du-Loup</a>
+          <a href="/saint-fabien">Saint-Fabien</a>
+          <a href="/grand-metis">Grand-Métis</a>
+          <a href="/les-hauteurs">Les Hauteurs</a>
         </div>
       </div>
 
@@ -892,7 +896,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/lanaudiere-14">Lanaudière (14)</a>
+          <a href="/region/bas-saint-laurent-01">Bas-Saint-Laurent (01)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -901,7 +905,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 
     <div class="el-footer__bottom">
       <p>© 2026 Thermopompe Aérothermique Québec · Tous droits réservés</p>
-      <p>Thermopompe Aérothermique · Saint-Donat · Lanaudière (14)</p>
+      <p>Thermopompe Aérothermique · Saint-Donat · Bas-Saint-Laurent (01)</p>
     </div>
   </div>
 </footer>
@@ -1026,7 +1030,7 @@ function _showRadioErr(errEl, groupName, stepEl) {
   while (errEl.firstChild) errEl.removeChild(errEl.firstChild);
   errEl.appendChild(_mkSvg('warn'));
   var span = document.createElement('span');
-  span.textContent = 'Veuillez faire un choix.';
+  span.textContent = errEl.dataset.errMsg || 'Veuillez faire un choix.';
   errEl.appendChild(span);
   stepEl.querySelectorAll('input[name="' + groupName + '"]').forEach(function(r) {
     r.addEventListener('change', function() { errEl.style.display = 'none'; }, {once: true});
@@ -1055,7 +1059,7 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       errCount++;
-      _fieldErr(inp, 'Ce champ est requis.');
+      _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       return;
     }
@@ -1063,14 +1067,14 @@ function nextStep(n) {
       var digits = inp.value.replace(/\D/g, '');
       if (digits.length !== 10) {
         errCount++;
-        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
+        _fieldErr(inp, inp.dataset.errFormat || 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
     if (inp.type === 'email') {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
         errCount++;
-        _fieldErr(inp, 'Adresse courriel invalide.');
+        _fieldErr(inp, inp.dataset.errFormat || 'Adresse courriel invalide.');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }

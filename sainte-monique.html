@@ -37,7 +37,7 @@
         "name": "Sainte-Monique",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Centre-du-Québec (17)"
+          "name": "Saguenay--Lac-Saint-Jean (02)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Centre-du-Québec (17)",
-          "item": "https://thermopompe-aerothermique.ca/region/centre-du-quebec-17"
+          "name": "Saguenay--Lac-Saint-Jean (02)",
+          "item": "https://thermopompe-aerothermique.ca/region/saguenay-lac-saint-jean-02"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/centre-du-quebec-17">Centre-du-Québec (17)</a>
+      <a href="/region/saguenay-lac-saint-jean-02">Saguenay--Lac-Saint-Jean (02)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Thermopompe Aérothermique Sainte-Monique</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          7 demandes d'installation cette semaine
+          17 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -268,7 +268,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="projet-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="projet-error" style="display:none"
+data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
 </div>
 
 
@@ -286,7 +287,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" required class="el-select">
+  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -301,7 +302,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser / chauffer</label>
-  <select name="superficie" required class="el-select">
+  <select name="superficie" requireddata-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -360,7 +361,8 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
       </div>
     </label>
   </div>
-  <p id="delai-error" class="hidden" style="font-size:.75rem;color:#ef4444;margin-top:.25rem;display:none">Veuillez faire un choix.</p>
+  <p id="delai-error" style="display:none"
+data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
 </div>
 
 
@@ -413,7 +415,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"required    class="el-input">
+placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -421,7 +423,7 @@ placeholder="Marie Tremblay"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"required    class="el-input">
+placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -429,7 +431,7 @@ placeholder="marie@exemple.com"required    class="el-input">
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"required    class="el-input">
+placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -515,14 +517,14 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 <section class="" style="background:var(--bg);padding-block:4.5rem 5rem;border-bottom:1px solid var(--bdr)">
   <div class="el-wrap-sm">
     <div class="ta-city-intro">
-      <h2>Quand le chauffage au mazout pèse lourd : le calcul réel pour les maisons anciennes de Sainte-Monique</h2>
-<p>Les résidences construites avant 2000 qui dominent Sainte-Monique et sa région dépensent en moyenne 2 000 à 3 500 $ annuellement en mazout ou propane, sans compter les appels d'urgence en janvier quand la chaudière lâche. Une thermopompe aérothermique moderne inverse ce modèle : les frais d'électricité chutent à 1 200-1 800 $ l'hiver, même lors des grands froids, grâce aux coefficients de performance supérieurs à 3,0 que les nouveaux modèles maintiennent jusqu'à -25°C. LogisVert (Hydro-Québec) couvre 2 800 à 4 200 $ de l'installation selon la configuration, réduisant votre débours initial de 35 à 40 %. Sur dix ans, un propriétaire de Centre-du-Québec (17) récupère typiquement 8 000 à 12 000 $ en économies nettes, auquel s'ajoute la valeur immobilière accrue et l'élimination du stock de mazout problématique.</p>
+      <h2>Performances réelles à -25°C : pourquoi les anciennes thermopompes échouent à Sainte-Monique</h2>
+<p>Entre janvier et février, les résidences de Sainte-Monique plongent régulièrement sous -20°C, avec des pics approchant -30°C. C'est précisément là que se révèle la différence abyssale entre une thermopompe standard et un modèle Hyper-Heat spécialisé au climat froid. Les systèmes conventionnels perdent 60 à 70% de leur efficacité dès -15°C et basculententiÈrement sur l'appoint électrique coûteux, annulant vos économies d'énergie. Les modèles Mitsubishi MZ Heat 2i, LG Multi V Heat ou Daikin Aurora Hi-Core maintiendront 80 à 100% de leur capacité calorifique même à -25°C, restant opérationnels jusqu'à -32°C. Pour un propriétaire de Saguenay–Lac-Saint-Jean (02), cette fiabilité hivernale n'est pas un luxe : c'est la condition sine qua non d'une transition réussie du mazout ou du propane vers l'électrique.</p>
 
-<h2>Les thermopompes qui survivent à janvier à Sainte-Monique : ce qui a changé depuis cinq ans</h2>
-<p>Pendant longtemps, les thermopompes air-air perdaient 30 à 50 % de leur rendement sous -20°C, obligeant les propriétaires à garder leur résistance électrique comme chauffage d'appoint constant. Les modèles Capella Série Pulse B et équivalents actuels fonctionnent efficacement jusqu'à -25°C à -30°C grâce à des compresseurs optimisés et des échangeurs thermiques de nouvelle génération. Concrètement, lors des vagues de froid typiques du Centre-du-Québec (17) en janvier et février, votre système prend en charge 80 à 90 % de la demande calorifique sans basculer en mode auxiliaire onéreux. Cette robustesse élimine l'anxiété du propriétaire rural et justifie l'abandon du mazout : vous n'hésitez plus à investir dans une technologie qui livrera réellement pendant les pires semaines de l'année.</p>
+<h2>Biénergie automatique : une seule facture, deux saisons couvertes sans compromis</h2>
+<p>Installer une thermopompe Hyper-Heat couplée à une fournaise d'appoint élimine un casse-tête administratif et technique que vivent les propriétaires de Sainte-Monique : gérer deux contrats d'entretien, deux technologies, deux pannes potentielles. Le système biénergie bascule automatiquement vers la fournaise uniquement lors des pics de froid extrême, maximisant votre rendement de la pompe lors des jours "tièdes" à -5°C ou -10°C où elle excelle. L'été, la même unité intérieure refroidit votre maison avec un coefficient de performance équivalent à un climatiseur haute gamme. Rénoclimat et le tarif D-T biénergie d'Hydro-Québec reconnaissent cette configuration comme prioritaire : vous accédez à des subventions majorées et à un rabais électrique de 25 à 35% sur vos consommations hors-pointe. Un seul appel pour l'entretien annuel, un suivi unifié, une facture énergétique transparente.</p>
 
-<h2>Un seul contrat d'entretien, deux saisons maîtrisées : pourquoi consolider chauffage et climatisation à Sainte-Monique</h2>
-<p>Beaucoup de propriétaires à Sainte-Monique gèrent encore séparément une chaudière pour l'hiver et un climatiseur de fenêtre pour les étés chauds—deux appareils, deux budgets d'entretien, deux pannes potentielles. Une thermopompe centrale ou multi-split unique assure le confort d'octobre à avril (chauffage) et de mai à septembre (refroidissement) sous un seul contrat de maintenance préventive annuelle. Pour une région comme Centre-du-Québec (17) qui subit à la fois des hivers à -20°C et des canicules estivales de plus en plus fréquentes, cette intégration simplifie la gestion patrimoniale et réduit les coûts d'administration. Un installateur RBQ certifié inspectera un seul fluide frigorigène, un seul compresseur, une seule unité extérieure—moins de variables, plus de fiabilité sur deux décennies.</p>
+<h2>Le dimensionnement correct détermine vos économies sur dix ans</h2>
+<p>L'erreur qui coûte le plus cher à Sainte-Monique n'est jamais l'équipement choisi, mais sa puissance mal calculée. Un installateur pressé qui divise votre maison par 500 plutôt que de faire un vrai calcul de charge thermique sous-dimensionnera votre système : vous surchargerez l'appoint électrique en janvier, annulant vos gains. À l'inverse, un surdimensionnement alourdit votre investissement initial et crée des cycles courts qui réduisent l'efficacité saisonnière. Un professionnel RBQ certifié en réfrigération doit mesurer les déperditions réelles par zone, évaluer vos besoins de refroidissement estival (oui, les canicules arrivent même au Saguenay–Lac-Saint-Jean (02)), et valider que la puissance nominale choisie optimise vos saisons. Cette démarche ajoute quelques heures, mais elle garantit que votre thermopompe travaille dans sa plage de rendement maximal pendant 15 à 20 ans.</p>
     </div>
   </div>
 </section>
@@ -859,28 +861,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          7 demandes d'installation cette semaine
+          17 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Thermopompe en Centre-du-Québec (17)</h4>
+        <h4 class="el-footer__col-label">Thermopompe en Saguenay--Lac-Saint-Jean (02)</h4>
         <div class="el-footer__links">
-          <a href="/la-visitation-de-yamaska">La Visitation-de-Yamaska</a>
-          <a href="/saint-pierre-baptiste">Saint-Pierre-Baptiste</a>
-          <a href="/saint-wenceslas">Saint-Wenceslas</a>
-          <a href="/laurierville">Laurierville</a>
-          <a href="/lemieux">Lemieux</a>
-          <a href="/drummondville">Drummondville</a>
-          <a href="/ham-nord">Ham-Nord</a>
-          <a href="/pierreville">Pierreville</a>
-          <a href="/warwick">Warwick</a>
-          <a href="/tingwick">Tingwick</a>
-          <a href="/chesterville">Chesterville</a>
-          <a href="/saint-edmond-de-grantham">Saint-Edmond-de-Grantham</a>
-          <a href="/saint-majorique-de-grantham">Saint-Majorique-de-Grantham</a>
-          <a href="/princeville">Princeville</a>
-          <a href="/saint-lucien">Saint-Lucien</a>
+          <a href="/dolbeau-mistassini">Dolbeau-Mistassini</a>
+          <a href="/petit-saguenay">Petit-Saguenay</a>
+          <a href="/saguenay">Saguenay</a>
+          <a href="/ferland-et-boilleau">Ferland-et-Boilleau</a>
+          <a href="/saint-gedeon">Saint-Gédéon</a>
+          <a href="/girardville">Girardville</a>
+          <a href="/saint-henri-de-taillon">Saint-Henri-de-Taillon</a>
+          <a href="/belle-riviere">Belle-Rivière</a>
+          <a href="/desbiens">Desbiens</a>
+          <a href="/lac-ashuapmushuan">Lac-Ashuapmushuan</a>
+          <a href="/saint-francois-de-sales">Saint-François-de-Sales</a>
+          <a href="/saint-ludger-de-milot">Saint-Ludger-de-Milot</a>
+          <a href="/alma">Alma</a>
+          <a href="/l-anse-saint-jean">L'Anse-Saint-Jean</a>
+          <a href="/saint-david-de-falardeau">Saint-David-de-Falardeau</a>
         </div>
       </div>
 
@@ -888,7 +890,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/centre-du-quebec-17">Centre-du-Québec (17)</a>
+          <a href="/region/saguenay-lac-saint-jean-02">Saguenay--Lac-Saint-Jean (02)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -897,7 +899,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 
     <div class="el-footer__bottom">
       <p>© 2026 Thermopompe Aérothermique Québec · Tous droits réservés</p>
-      <p>Thermopompe Aérothermique · Sainte-Monique · Centre-du-Québec (17)</p>
+      <p>Thermopompe Aérothermique · Sainte-Monique · Saguenay--Lac-Saint-Jean (02)</p>
     </div>
   </div>
 </footer>
@@ -1022,7 +1024,7 @@ function _showRadioErr(errEl, groupName, stepEl) {
   while (errEl.firstChild) errEl.removeChild(errEl.firstChild);
   errEl.appendChild(_mkSvg('warn'));
   var span = document.createElement('span');
-  span.textContent = 'Veuillez faire un choix.';
+  span.textContent = errEl.dataset.errMsg || 'Veuillez faire un choix.';
   errEl.appendChild(span);
   stepEl.querySelectorAll('input[name="' + groupName + '"]').forEach(function(r) {
     r.addEventListener('change', function() { errEl.style.display = 'none'; }, {once: true});
@@ -1051,7 +1053,7 @@ function nextStep(n) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
       errCount++;
-      _fieldErr(inp, 'Ce champ est requis.');
+      _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       return;
     }
@@ -1059,14 +1061,14 @@ function nextStep(n) {
       var digits = inp.value.replace(/\D/g, '');
       if (digits.length !== 10) {
         errCount++;
-        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
+        _fieldErr(inp, inp.dataset.errFormat || 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
     if (inp.type === 'email') {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
         errCount++;
-        _fieldErr(inp, 'Adresse courriel invalide.');
+        _fieldErr(inp, inp.dataset.errFormat || 'Adresse courriel invalide.');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
