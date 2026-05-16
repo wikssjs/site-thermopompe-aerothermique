@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thermopompe-aerothermique.ca/sitemap-index.xml
