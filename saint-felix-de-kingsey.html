@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-aerothermique" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-aerothermique">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="4b68b38d-9cfa-411f-817f-15c7bf56bd95">
+  <input type="hidden" name="subject" value="Nouveau lead — Thermopompe Aérothermique Québec — Saint-Félix-de-Kingsey">
   <input type="hidden" name="ville-cible" value="Saint-Félix-de-Kingsey">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="ta-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -865,21 +866,21 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
       <div>
         <h4 class="el-footer__col-label">Thermopompe en Centre-du-Québec (17)</h4>
         <div class="el-footer__links">
-          <a href="/plessisville">Plessisville</a>
-          <a href="/manseau">Manseau</a>
-          <a href="/notre-dame-de-ham">Notre-Dame-de-Ham</a>
-          <a href="/sainte-marie-de-blandford">Sainte-Marie-de-Blandford</a>
-          <a href="/saint-norbert-d-arthabaska">Saint-Norbert-d'Arthabaska</a>
-          <a href="/saint-albert">Saint-Albert</a>
-          <a href="/saint-remi-de-tingwick">Saint-Rémi-de-Tingwick</a>
-          <a href="/sainte-eulalie">Sainte-Eulalie</a>
-          <a href="/ham-nord">Ham-Nord</a>
-          <a href="/saint-francois-du-lac">Saint-François-du-Lac</a>
-          <a href="/sainte-clotilde-de-horton">Sainte-Clotilde-de-Horton</a>
+          <a href="/saints-martyrs-canadiens">Saints-Martyrs-Canadiens</a>
+          <a href="/sainte-sophie-de-levrard">Sainte-Sophie-de-Lévrard</a>
+          <a href="/saint-wenceslas">Saint-Wenceslas</a>
+          <a href="/victoriaville">Victoriaville</a>
+          <a href="/lyster">Lyster</a>
+          <a href="/lemieux">Lemieux</a>
+          <a href="/pierreville">Pierreville</a>
+          <a href="/la-visitation-de-yamaska">La Visitation-de-Yamaska</a>
           <a href="/saint-germain-de-grantham">Saint-Germain-de-Grantham</a>
-          <a href="/villeroy">Villeroy</a>
           <a href="/saint-celestin">Saint-Célestin</a>
-          <a href="/daveluyville">Daveluyville</a>
+          <a href="/deschaillons-sur-saint-laurent">Deschaillons-sur-Saint-Laurent</a>
+          <a href="/saint-pierre-les-becquets">Saint-Pierre-les-Becquets</a>
+          <a href="/saint-louis-de-blandford">Saint-Louis-de-Blandford</a>
+          <a href="/saint-edmond-de-grantham">Saint-Edmond-de-Grantham</a>
+          <a href="/aston-jonction">Aston-Jonction</a>
         </div>
       </div>
 
@@ -975,7 +976,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {

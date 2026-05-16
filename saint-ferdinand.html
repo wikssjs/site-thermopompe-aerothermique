@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          12 demandes d'installation cette semaine
+          14 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-aerothermique" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-aerothermique">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="4b68b38d-9cfa-411f-817f-15c7bf56bd95">
+  <input type="hidden" name="subject" value="Nouveau lead — Thermopompe Aérothermique Québec — Saint-Ferdinand">
   <input type="hidden" name="ville-cible" value="Saint-Ferdinand">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="ta-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -858,7 +859,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          12 demandes d'installation cette semaine
+          14 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -867,19 +868,19 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <div class="el-footer__links">
           <a href="/odanak">Odanak</a>
           <a href="/saint-pierre-les-becquets">Saint-Pierre-les-Becquets</a>
-          <a href="/notre-dame-de-ham">Notre-Dame-de-Ham</a>
-          <a href="/sainte-seraphine">Sainte-Séraphine</a>
-          <a href="/saint-lucien">Saint-Lucien</a>
-          <a href="/kingsey-falls">Kingsey Falls</a>
-          <a href="/sainte-perpetue">Sainte-Perpétue</a>
-          <a href="/laurierville">Laurierville</a>
-          <a href="/saint-cyrille-de-wendover">Saint-Cyrille-de-Wendover</a>
-          <a href="/saint-pie-de-guire">Saint-Pie-de-Guire</a>
-          <a href="/becancour">Bécancour</a>
-          <a href="/drummondville">Drummondville</a>
-          <a href="/saint-guillaume">Saint-Guillaume</a>
-          <a href="/nicolet">Nicolet</a>
+          <a href="/lemieux">Lemieux</a>
           <a href="/grand-saint-esprit">Grand-Saint-Esprit</a>
+          <a href="/saint-zephirin-de-courval">Saint-Zéphirin-de-Courval</a>
+          <a href="/saint-remi-de-tingwick">Saint-Rémi-de-Tingwick</a>
+          <a href="/sainte-eulalie">Sainte-Eulalie</a>
+          <a href="/sainte-clotilde-de-horton">Sainte-Clotilde-de-Horton</a>
+          <a href="/inverness">Inverness</a>
+          <a href="/wolinak">Wôlinak</a>
+          <a href="/fortierville">Fortierville</a>
+          <a href="/sainte-perpetue">Sainte-Perpétue</a>
+          <a href="/sainte-monique">Sainte-Monique</a>
+          <a href="/parisville">Parisville</a>
+          <a href="/saint-valere">Saint-Valère</a>
         </div>
       </div>
 
@@ -975,7 +976,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {

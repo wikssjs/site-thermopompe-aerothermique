@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          13 demandes d'installation cette semaine
+          18 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -213,10 +213,11 @@
     </div>
   </div>
   <div class="el-form-card__body">
-<form id="empire-form" name="devis-aerothermique" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="devis-aerothermique">
+<form id="empire-form" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="4b68b38d-9cfa-411f-817f-15c7bf56bd95">
+  <input type="hidden" name="subject" value="Nouveau lead — Thermopompe Aérothermique Québec — Saint-Hubert-de-Rivière-du-Loup">
   <input type="hidden" name="ville-cible" value="Saint-Hubert-de-Rivière-du-Loup">
-  <p class="hidden"><label>Ne pas remplir: <input name="bot-field"></label></p>
+  <input type="hidden" name="botcheck" value="">
 
   <div class="ta-form-step active" id="step-1">
     <p style="font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:.875rem">Type de projet</p>
@@ -858,28 +859,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          13 demandes d'installation cette semaine
+          18 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Thermopompe en Bas-Saint-Laurent (01)</h4>
         <div class="el-footer__links">
-          <a href="/saint-andre-de-kamouraska">Saint-André-de-Kamouraska</a>
-          <a href="/rimouski">Rimouski</a>
-          <a href="/sainte-jeanne-d-arc-de-la-mitis">Sainte-Jeanne-d'Arc-de-la-Mitis</a>
-          <a href="/la-trinite-des-monts">La Trinité-des-Monts</a>
-          <a href="/baie-des-sables">Baie-des-Sables</a>
+          <a href="/saint-eloi">Saint-Éloi</a>
+          <a href="/grosses-roches">Grosses-Roches</a>
+          <a href="/amqui">Amqui</a>
+          <a href="/saint-mathieu-de-rioux">Saint-Mathieu-de-Rioux</a>
+          <a href="/notre-dame-des-neiges">Notre-Dame-des-Neiges</a>
+          <a href="/saint-adelme">Saint-Adelme</a>
           <a href="/saint-vianney">Saint-Vianney</a>
-          <a href="/saint-joseph-de-lepage">Saint-Joseph-de-Lepage</a>
-          <a href="/auclair">Auclair</a>
-          <a href="/saint-jean-de-cherbourg">Saint-Jean-de-Cherbourg</a>
-          <a href="/saint-alexandre-de-kamouraska">Saint-Alexandre-de-Kamouraska</a>
-          <a href="/saint-jean-de-la-lande">Saint-Jean-de-la-Lande</a>
-          <a href="/sayabec">Sayabec</a>
-          <a href="/saint-pascal">Saint-Pascal</a>
-          <a href="/saint-fabien">Saint-Fabien</a>
-          <a href="/saint-epiphane">Saint-Épiphane</a>
+          <a href="/saint-pierre-de-lamy">Saint-Pierre-de-Lamy</a>
+          <a href="/pohenegamook">Pohénégamook</a>
+          <a href="/saint-narcisse-de-rimouski">Saint-Narcisse-de-Rimouski</a>
+          <a href="/la-trinite-des-monts">La Trinité-des-Monts</a>
+          <a href="/l-isle-verte">L'Isle-Verte</a>
+          <a href="/sainte-paule">Sainte-Paule</a>
+          <a href="/saint-leandre">Saint-Léandre</a>
+          <a href="/sainte-flavie">Sainte-Flavie</a>
         </div>
       </div>
 
@@ -975,7 +976,7 @@ function nextStep(n) {
 
 function prevStep(n) { showStep(n); }
 
-var _submitUrl = '/';
+var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
