@@ -1044,17 +1044,16 @@ function showStep(n) {
   _fStep = n;
 }
 
-function nextStep(n) {
-  var current = document.getElementById('step-' + _fStep);
-  if (!current) { showStep(n); return; }
+function _validateStep(current, stepNum) {
   var errCount = 0;
-
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
+    var isSelect = (inp.tagName === 'SELECT');
     if (!inp.value.trim()) {
       errCount++;
       _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      if (isSelect) inp.addEventListener('change', function() { _clearErr(inp); }, {once: true});
       return;
     }
     if (inp.type === 'tel') {
@@ -1073,19 +1072,26 @@ function nextStep(n) {
       }
     }
   });
-
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      errCount++;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) _showRadioErr(errEl, rg.name, current);
+  if (stepNum !== undefined) {
+    _radioGroups.forEach(function(rg) {
+      if (rg.step !== stepNum) return;
+      var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
+      if (!checked) {
+        errCount++;
+        if (rg.error) {
+          var errEl = document.getElementById(rg.error);
+          if (errEl) _showRadioErr(errEl, rg.name, current);
+        }
       }
-    }
-  });
+    });
+  }
+  return errCount;
+}
 
+function nextStep(n) {
+  var current = document.getElementById('step-' + _fStep);
+  if (!current) { showStep(n); return; }
+  var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
@@ -1109,6 +1115,11 @@ var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var current = document.getElementById('step-' + _fStep);
+    if (current) {
+      var errCount = _validateStep(current, _fStep);
+      if (errCount > 0) { _showBanner(current, errCount); return; }
+    }
     var data = new FormData(_form);
     fetch(_submitUrl, {
       method: 'POST',
@@ -1155,13 +1166,6 @@ if (_stickyBar) {
       var item=btn.closest('.el-faq-item');
       var isOpen=item.classList.contains('is-open');
       document.querySelectorAll('.el-faq-item.is-open').forEach(function(i){i.classList.remove('is-open');});
-      if(!isOpen)item.classList.add('is-open');
-    });
-  });
-})();
-</script>
-</body>
-</html>.el-faq-item.is-open').forEach(function(i){i.classList.remove('is-open');});
       if(!isOpen)item.classList.add('is-open');
     });
   });

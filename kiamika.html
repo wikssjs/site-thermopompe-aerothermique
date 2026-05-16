@@ -666,29 +666,29 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
       </div>
       <div class="el-svc-card el-reveal el-reveal-d2">
         <div class="el-svc-icon-wrap">
+          <svg aria-hidden="true"><use href="#icon-snowflake"/></svg>
+        </div>
+        <div>
+          <h3 class="el-svc-card__title">Climatisation estivale</h3>
+          <p class="el-svc-card__desc">Refroidissement silencieux et efficace. Déshumidification intégrée pour le confort des étés québécois.</p>
+        </div>
+      </div>
+      <div class="el-svc-card el-reveal el-reveal-d3">
+        <div class="el-svc-icon-wrap">
+          <svg aria-hidden="true"><use href="#icon-gauge"/></svg>
+        </div>
+        <div>
+          <h3 class="el-svc-card__title">Bilan thermique de la maison</h3>
+          <p class="el-svc-card__desc">Évaluation de vos besoins réels avant l'achat. Recommandation du modèle et de la puissance idéale.</p>
+        </div>
+      </div>
+      <div class="el-svc-card el-reveal el-reveal-d4">
+        <div class="el-svc-icon-wrap">
           <svg aria-hidden="true"><use href="#icon-zap"/></svg>
         </div>
         <div>
           <h3 class="el-svc-card__title">Installation multi-zones</h3>
           <p class="el-svc-card__desc">Systèmes VRF multi-zones pour plusieurs pièces ou logements. Contrôle indépendant par zone.</p>
-        </div>
-      </div>
-      <div class="el-svc-card el-reveal el-reveal-d3">
-        <div class="el-svc-icon-wrap">
-          <svg aria-hidden="true"><use href="#icon-air-vent"/></svg>
-        </div>
-        <div>
-          <h3 class="el-svc-card__title">Installation thermopompe murale</h3>
-          <p class="el-svc-card__desc">Pose complète d'une thermopompe murale air-air. Bilan thermique, sélection du modèle, installation certifiée RBQ, mise en service.</p>
-        </div>
-      </div>
-      <div class="el-svc-card el-reveal el-reveal-d4">
-        <div class="el-svc-icon-wrap">
-          <svg aria-hidden="true"><use href="#icon-settings"/></svg>
-        </div>
-        <div>
-          <h3 class="el-svc-card__title">Thermostats intelligents Wi-Fi</h3>
-          <p class="el-svc-card__desc">Intégration thermostat connecté, contrôle depuis votre téléphone. Compatible Ecobee, Nest, Mysa.</p>
         </div>
       </div>
       <div class="el-svc-card el-reveal el-reveal-d4">
@@ -702,11 +702,20 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
       </div>
       <div class="el-svc-card el-reveal el-reveal-d4">
         <div class="el-svc-icon-wrap">
-          <svg aria-hidden="true"><use href="#icon-gauge"/></svg>
+          <svg aria-hidden="true"><use href="#icon-settings"/></svg>
         </div>
         <div>
-          <h3 class="el-svc-card__title">Bilan thermique de la maison</h3>
-          <p class="el-svc-card__desc">Évaluation de vos besoins réels avant l'achat. Recommandation du modèle et de la puissance idéale.</p>
+          <h3 class="el-svc-card__title">Thermostats intelligents Wi-Fi</h3>
+          <p class="el-svc-card__desc">Intégration thermostat connecté, contrôle depuis votre téléphone. Compatible Ecobee, Nest, Mysa.</p>
+        </div>
+      </div>
+      <div class="el-svc-card el-reveal el-reveal-d4">
+        <div class="el-svc-icon-wrap">
+          <svg aria-hidden="true"><use href="#icon-air-vent"/></svg>
+        </div>
+        <div>
+          <h3 class="el-svc-card__title">Installation thermopompe murale</h3>
+          <p class="el-svc-card__desc">Pose complète d'une thermopompe murale air-air. Bilan thermique, sélection du modèle, installation certifiée RBQ, mise en service.</p>
         </div>
       </div>
       <div class="el-svc-card el-reveal el-reveal-d4">
@@ -716,15 +725,6 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <div>
           <h3 class="el-svc-card__title">Remplacement & mise à niveau</h3>
           <p class="el-svc-card__desc">Retrait de l'ancien système, installation du nouveau. Récupération du réfrigérant selon normes environnementales.</p>
-        </div>
-      </div>
-      <div class="el-svc-card el-reveal el-reveal-d4">
-        <div class="el-svc-icon-wrap">
-          <svg aria-hidden="true"><use href="#icon-snowflake"/></svg>
-        </div>
-        <div>
-          <h3 class="el-svc-card__title">Climatisation estivale</h3>
-          <p class="el-svc-card__desc">Refroidissement silencieux et efficace. Déshumidification intégrée pour le confort des étés québécois.</p>
         </div>
       </div>
     </div>
@@ -1044,17 +1044,16 @@ function showStep(n) {
   _fStep = n;
 }
 
-function nextStep(n) {
-  var current = document.getElementById('step-' + _fStep);
-  if (!current) { showStep(n); return; }
+function _validateStep(current, stepNum) {
   var errCount = 0;
-
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
+    var isSelect = (inp.tagName === 'SELECT');
     if (!inp.value.trim()) {
       errCount++;
       _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      if (isSelect) inp.addEventListener('change', function() { _clearErr(inp); }, {once: true});
       return;
     }
     if (inp.type === 'tel') {
@@ -1073,19 +1072,26 @@ function nextStep(n) {
       }
     }
   });
-
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      errCount++;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) _showRadioErr(errEl, rg.name, current);
+  if (stepNum !== undefined) {
+    _radioGroups.forEach(function(rg) {
+      if (rg.step !== stepNum) return;
+      var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
+      if (!checked) {
+        errCount++;
+        if (rg.error) {
+          var errEl = document.getElementById(rg.error);
+          if (errEl) _showRadioErr(errEl, rg.name, current);
+        }
       }
-    }
-  });
+    });
+  }
+  return errCount;
+}
 
+function nextStep(n) {
+  var current = document.getElementById('step-' + _fStep);
+  if (!current) { showStep(n); return; }
+  var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
@@ -1109,6 +1115,11 @@ var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var current = document.getElementById('step-' + _fStep);
+    if (current) {
+      var errCount = _validateStep(current, _fStep);
+      if (errCount > 0) { _showBanner(current, errCount); return; }
+    }
     var data = new FormData(_form);
     fetch(_submitUrl, {
       method: 'POST',

@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          10 demandes d'installation cette semaine
+          16 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -861,28 +861,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          10 demandes d'installation cette semaine
+          16 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Thermopompe en Laurentides (15)</h4>
         <div class="el-footer__links">
-          <a href="/lac-superieur">Lac-Supérieur</a>
-          <a href="/lac-des-ecorces">Lac-des-Écorces</a>
-          <a href="/sainte-marguerite-du-lac-masson">Sainte-Marguerite-du-Lac-Masson</a>
-          <a href="/lac-de-la-bidiere">Lac-De La Bidière</a>
-          <a href="/lac-marguerite">Lac-Marguerite</a>
+          <a href="/harrington">Harrington</a>
+          <a href="/barkmere">Barkmere</a>
+          <a href="/lachute">Lachute</a>
           <a href="/sainte-marthe-sur-le-lac">Sainte-Marthe-sur-le-Lac</a>
-          <a href="/lac-de-la-pomme">Lac-de-la-Pomme</a>
-          <a href="/boisbriand">Boisbriand</a>
-          <a href="/blainville">Blainville</a>
-          <a href="/kiamika">Kiamika</a>
+          <a href="/lac-de-la-maison-de-pierre">Lac-de-la-Maison-de-Pierre</a>
+          <a href="/brebeuf">Brébeuf</a>
+          <a href="/mont-laurier">Mont-Laurier</a>
+          <a href="/lac-douaire">Lac-Douaire</a>
+          <a href="/saint-jerome">Saint-Jérôme</a>
           <a href="/wentworth-nord">Wentworth-Nord</a>
-          <a href="/saint-colomban">Saint-Colomban</a>
-          <a href="/lorraine">Lorraine</a>
-          <a href="/lac-tremblant-nord">Lac-Tremblant-Nord</a>
-          <a href="/prevost">Prévost</a>
+          <a href="/labelle">Labelle</a>
+          <a href="/lac-saint-paul">Lac-Saint-Paul</a>
+          <a href="/saint-sauveur">Saint-Sauveur</a>
+          <a href="/lac-superieur">Lac-Supérieur</a>
+          <a href="/esterel">Estérel</a>
         </div>
       </div>
 
@@ -1044,17 +1044,16 @@ function showStep(n) {
   _fStep = n;
 }
 
-function nextStep(n) {
-  var current = document.getElementById('step-' + _fStep);
-  if (!current) { showStep(n); return; }
+function _validateStep(current, stepNum) {
   var errCount = 0;
-
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
+    var isSelect = (inp.tagName === 'SELECT');
     if (!inp.value.trim()) {
       errCount++;
       _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      if (isSelect) inp.addEventListener('change', function() { _clearErr(inp); }, {once: true});
       return;
     }
     if (inp.type === 'tel') {
@@ -1073,19 +1072,26 @@ function nextStep(n) {
       }
     }
   });
-
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      errCount++;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) _showRadioErr(errEl, rg.name, current);
+  if (stepNum !== undefined) {
+    _radioGroups.forEach(function(rg) {
+      if (rg.step !== stepNum) return;
+      var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
+      if (!checked) {
+        errCount++;
+        if (rg.error) {
+          var errEl = document.getElementById(rg.error);
+          if (errEl) _showRadioErr(errEl, rg.name, current);
+        }
       }
-    }
-  });
+    });
+  }
+  return errCount;
+}
 
+function nextStep(n) {
+  var current = document.getElementById('step-' + _fStep);
+  if (!current) { showStep(n); return; }
+  var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
@@ -1109,6 +1115,11 @@ var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var current = document.getElementById('step-' + _fStep);
+    if (current) {
+      var errCount = _validateStep(current, _fStep);
+      if (errCount > 0) { _showBanner(current, errCount); return; }
+    }
     var data = new FormData(_form);
     fetch(_submitUrl, {
       method: 'POST',

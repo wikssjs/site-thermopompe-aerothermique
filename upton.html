@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          12 demandes d'installation cette semaine
+          11 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -867,28 +867,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          12 demandes d'installation cette semaine
+          11 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Thermopompe en Montérégie (16)</h4>
         <div class="el-footer__links">
-          <a href="/saint-louis-de-gonzague">Saint-Louis-de-Gonzague</a>
-          <a href="/saint-polycarpe">Saint-Polycarpe</a>
-          <a href="/saint-nazaire-d-acton">Saint-Nazaire-d'Acton</a>
-          <a href="/carignan">Carignan</a>
-          <a href="/saint-antoine-sur-richelieu">Saint-Antoine-sur-Richelieu</a>
-          <a href="/saint-amable">Saint-Amable</a>
-          <a href="/noyan">Noyan</a>
-          <a href="/sainte-martine">Sainte-Martine</a>
-          <a href="/rougemont">Rougemont</a>
+          <a href="/sainte-anne-de-sabrevois">Sainte-Anne-de-Sabrevois</a>
+          <a href="/saint-charles-sur-richelieu">Saint-Charles-sur-Richelieu</a>
+          <a href="/saint-jacques-le-mineur">Saint-Jacques-le-Mineur</a>
+          <a href="/kahnawake">Kahnawake</a>
+          <a href="/saint-david">Saint-David</a>
+          <a href="/franklin">Franklin</a>
+          <a href="/mont-saint-gregoire">Mont-Saint-Grégoire</a>
+          <a href="/saint-lazare">Saint-Lazare</a>
+          <a href="/saint-mathias-sur-richelieu">Saint-Mathias-sur-Richelieu</a>
+          <a href="/saint-louis">Saint-Louis</a>
+          <a href="/rigaud">Rigaud</a>
+          <a href="/dundee">Dundee</a>
+          <a href="/beauharnois">Beauharnois</a>
           <a href="/roxton-falls">Roxton Falls</a>
-          <a href="/tres-saint-redempteur">Très-Saint-Rédempteur</a>
-          <a href="/sainte-barbe">Sainte-Barbe</a>
-          <a href="/saint-barnabe-sud">Saint-Barnabé-Sud</a>
-          <a href="/saint-cesaire">Saint-Césaire</a>
-          <a href="/otterburn-park">Otterburn Park</a>
+          <a href="/pincourt">Pincourt</a>
         </div>
       </div>
 
@@ -1050,17 +1050,16 @@ function showStep(n) {
   _fStep = n;
 }
 
-function nextStep(n) {
-  var current = document.getElementById('step-' + _fStep);
-  if (!current) { showStep(n); return; }
+function _validateStep(current, stepNum) {
   var errCount = 0;
-
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
+    var isSelect = (inp.tagName === 'SELECT');
     if (!inp.value.trim()) {
       errCount++;
       _fieldErr(inp, inp.dataset.errRequired || 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
+      if (isSelect) inp.addEventListener('change', function() { _clearErr(inp); }, {once: true});
       return;
     }
     if (inp.type === 'tel') {
@@ -1079,19 +1078,26 @@ function nextStep(n) {
       }
     }
   });
-
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      errCount++;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) _showRadioErr(errEl, rg.name, current);
+  if (stepNum !== undefined) {
+    _radioGroups.forEach(function(rg) {
+      if (rg.step !== stepNum) return;
+      var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
+      if (!checked) {
+        errCount++;
+        if (rg.error) {
+          var errEl = document.getElementById(rg.error);
+          if (errEl) _showRadioErr(errEl, rg.name, current);
+        }
       }
-    }
-  });
+    });
+  }
+  return errCount;
+}
 
+function nextStep(n) {
+  var current = document.getElementById('step-' + _fStep);
+  if (!current) { showStep(n); return; }
+  var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
@@ -1115,6 +1121,11 @@ var _form = document.getElementById('empire-form');
 if (_form) {
   _form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var current = document.getElementById('step-' + _fStep);
+    if (current) {
+      var errCount = _validateStep(current, _fStep);
+      if (errCount > 0) { _showBanner(current, errCount); return; }
+    }
     var data = new FormData(_form);
     fetch(_submitUrl, {
       method: 'POST',
