@@ -931,6 +931,8 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 </footer>
 <!-- SCRIPT FORM V4 -->
 <script>
+(function(){var s=document.createElement('style');s.textContent='@keyframes _shk{0%,100%{transform:translateX(0)}15%{transform:translateX(-6px)}35%{transform:translateX(6px)}55%{transform:translateX(-4px)}75%{transform:translateX(4px)}}';document.head.appendChild(s);})();
+
 var _fStep = 1;
 var _totalSteps = 4;
 var _stepLabels = {
@@ -960,8 +962,104 @@ function _updateDots(n) {
   }
 }
 
+/* --- SVG icon factory (no innerHTML) --- */
+function _mkSvg(type) {
+  var ns = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(ns, 'svg');
+  var sz = type === 'alert' ? '15' : '13';
+  svg.setAttribute('width', sz); svg.setAttribute('height', sz);
+  svg.setAttribute('fill', 'none'); svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '2.5');
+  svg.setAttribute('stroke-linecap', 'round'); svg.setAttribute('stroke-linejoin', 'round');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.style.flexShrink = '0';
+  if (type === 'alert') {
+    svg.style.marginTop = '.1rem';
+    var p = document.createElementNS(ns, 'path');
+    p.setAttribute('d', 'M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z');
+    svg.appendChild(p);
+    var la = document.createElementNS(ns, 'line');
+    la.setAttribute('x1','12');la.setAttribute('y1','9');la.setAttribute('x2','12');la.setAttribute('y2','13');
+    svg.appendChild(la);
+    var lb = document.createElementNS(ns, 'line');
+    lb.setAttribute('x1','12');lb.setAttribute('y1','17');lb.setAttribute('x2','12.01');lb.setAttribute('y2','17');
+    svg.appendChild(lb);
+  } else {
+    var c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx','12');c.setAttribute('cy','12');c.setAttribute('r','10');
+    svg.appendChild(c);
+    var lc = document.createElementNS(ns, 'line');
+    lc.setAttribute('x1','12');lc.setAttribute('y1','8');lc.setAttribute('x2','12');lc.setAttribute('y2','12');
+    svg.appendChild(lc);
+    var ld = document.createElementNS(ns, 'line');
+    ld.setAttribute('x1','12');ld.setAttribute('y1','16');ld.setAttribute('x2','12.01');ld.setAttribute('y2','16');
+    svg.appendChild(ld);
+  }
+  return svg;
+}
+
+/* --- Banner (step-level) --- */
+function _clearBanner(stepEl) {
+  var b = stepEl && stepEl.querySelector('.form-step-banner');
+  if (b) b.remove();
+}
+
+function _showBanner(stepEl, errCount) {
+  _clearBanner(stepEl);
+  var msg = errCount > 1
+    ? errCount + ' champs à corriger avant de continuer.'
+    : 'Veuillez corriger le champ en rouge avant de continuer.';
+  var b = document.createElement('div');
+  b.className = 'form-step-banner';
+  b.style.cssText = 'display:flex;align-items:flex-start;gap:.5rem;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:8px;padding:.75rem 1rem;margin-bottom:.875rem;font-size:.8125rem;color:#b91c1c;font-weight:600;line-height:1.45;animation:_shk .4s ease';
+  b.appendChild(_mkSvg('alert'));
+  var span = document.createElement('span');
+  span.textContent = msg;
+  b.appendChild(span);
+  var title = stepEl.querySelector('p');
+  if (title && title.nextSibling) { stepEl.insertBefore(b, title.nextSibling); }
+  else { stepEl.insertBefore(b, stepEl.firstChild); }
+  b.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+
+/* --- Field-level error --- */
+function _fieldErr(inp, msg) {
+  _clearErr(inp);
+  inp.style.borderColor = '#fca5a5';
+  inp.style.boxShadow = '0 0 0 3px rgba(239,68,68,.15)';
+  var d = document.createElement('div');
+  d.className = 'form-err-msg';
+  d.style.cssText = 'display:flex;align-items:center;gap:.3rem;font-size:.75rem;color:#dc2626;font-weight:500;margin-top:.3rem';
+  d.appendChild(_mkSvg('warn'));
+  var span = document.createElement('span');
+  span.textContent = msg;
+  d.appendChild(span);
+  inp.parentNode.appendChild(d);
+}
+
+function _clearErr(inp) {
+  var d = inp.parentNode.querySelector('.form-err-msg');
+  if (d) d.remove();
+  inp.style.borderColor = '';
+  inp.style.boxShadow = '';
+}
+
+/* --- Radio group error --- */
+function _showRadioErr(errEl, groupName, stepEl) {
+  errEl.style.cssText = 'display:flex;align-items:center;gap:.3rem;font-size:.75rem;color:#dc2626;font-weight:500;margin-top:.3rem';
+  while (errEl.firstChild) errEl.removeChild(errEl.firstChild);
+  errEl.appendChild(_mkSvg('warn'));
+  var span = document.createElement('span');
+  span.textContent = 'Veuillez faire un choix.';
+  errEl.appendChild(span);
+  stepEl.querySelectorAll('input[name="' + groupName + '"]').forEach(function(r) {
+    r.addEventListener('change', function() { errEl.style.display = 'none'; }, {once: true});
+  });
+}
+
+/* --- Navigation --- */
 function showStep(n) {
-  document.querySelectorAll('.ta-form-step').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.ta-form-step').forEach(function(s) { s.classList.remove('active'); _clearBanner(s); });
   var target = document.getElementById('step-' + n);
   if (target) target.classList.add('active');
   var lbl = document.getElementById('step-label');
@@ -972,27 +1070,15 @@ function showStep(n) {
   _fStep = n;
 }
 
-function _fieldErr(inp, msg) {
-  var p = inp.parentNode.querySelector('.form-err');
-  if (!p) { p = document.createElement('p'); p.className = 'form-err'; p.style.cssText = 'font-size:.75rem;color:#ef4444;margin-top:.25rem'; inp.parentNode.appendChild(p); }
-  p.textContent = msg;
-  inp.style.borderColor = '#fca5a5';
-}
-function _clearErr(inp) {
-  var p = inp.parentNode.querySelector('.form-err');
-  if (p) p.remove();
-  inp.style.borderColor = '';
-}
-
 function nextStep(n) {
   var current = document.getElementById('step-' + _fStep);
   if (!current) { showStep(n); return; }
-  var valid = true;
+  var errCount = 0;
 
   current.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(inp) {
     if (inp.type === 'radio') return;
     if (!inp.value.trim()) {
-      valid = false;
+      errCount++;
       _fieldErr(inp, 'Ce champ est requis.');
       inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       return;
@@ -1000,14 +1086,14 @@ function nextStep(n) {
     if (inp.type === 'tel') {
       var digits = inp.value.replace(/\D/g, '');
       if (digits.length !== 10) {
-        valid = false;
-        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex: 514 000-0000).');
+        errCount++;
+        _fieldErr(inp, 'Numéro invalide — 10 chiffres requis (ex. : 514 000-0000).');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
     }
     if (inp.type === 'email') {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(inp.value.trim())) {
-        valid = false;
+        errCount++;
         _fieldErr(inp, 'Adresse courriel invalide.');
         inp.addEventListener('input', function() { _clearErr(inp); }, {once: true});
       }
@@ -1018,18 +1104,21 @@ function nextStep(n) {
     if (rg.step !== _fStep) return;
     var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
     if (!checked) {
-      valid = false;
+      errCount++;
       if (rg.error) {
         var errEl = document.getElementById(rg.error);
-        if (errEl) { errEl.style.display = 'block'; setTimeout(function() { errEl.style.display = 'none'; }, 3000); }
+        if (errEl) _showRadioErr(errEl, rg.name, current);
       }
     }
   });
 
-  if (!valid) return;
+  if (errCount > 0) { _showBanner(current, errCount); return; }
   showStep(n);
 }
 
+function prevStep(n) { showStep(n); }
+
+/* --- Phone auto-format --- */
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('input[type="tel"]').forEach(function(inp) {
     inp.addEventListener('input', function() {
@@ -1040,8 +1129,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
-function prevStep(n) { showStep(n); }
 
 var _submitUrl = 'https://api.web3forms.com/submit';
 var _form = document.getElementById('empire-form');
