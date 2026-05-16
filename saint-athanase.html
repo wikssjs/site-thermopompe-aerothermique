@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          16 demandes d'installation cette semaine
+          17 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -269,7 +269,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
     </label>
   </div>
   <p id="projet-error" style="display:none"
-data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
+ data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
 </div>
 
 
@@ -287,7 +287,8 @@ data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions le
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
+  <select name="type-propriete"
+ required data-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -302,7 +303,8 @@ data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions le
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser / chauffer</label>
-  <select name="superficie" requireddata-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
+  <select name="superficie"
+ required data-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -362,7 +364,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
     </label>
   </div>
   <p id="delai-error" style="display:none"
-data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
+ data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
 </div>
 
 
@@ -415,7 +417,7 @@ data-err-msg="Précisez votre délai pour que les installateurs planifient l'int
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
+ placeholder="Marie Tremblay" required data-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -423,7 +425,7 @@ placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
+ placeholder="marie@exemple.com" required data-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique." data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -431,7 +433,7 @@ placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est req
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
+ placeholder="514 000-0000" required data-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent." data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -439,7 +441,7 @@ placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis po
 <div class="el-field">
   <label class="el-label">Informations supplémentaires</label>
   <textarea name="commentaires" rows="3"
-placeholder="Ex : superficie du logement, type de chauffage actuel, questions sur les subventions..."    class="el-textarea"></textarea>
+ placeholder="Ex : superficie du logement, type de chauffage actuel, questions sur les subventions..."    class="el-textarea"></textarea>
 </div>
 
 
@@ -867,28 +869,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          16 demandes d'installation cette semaine
+          17 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
         <h4 class="el-footer__col-label">Thermopompe en Bas-Saint-Laurent (01)</h4>
         <div class="el-footer__links">
-          <a href="/l-isle-verte">L'Isle-Verte</a>
-          <a href="/saint-pascal">Saint-Pascal</a>
-          <a href="/saint-leon-le-grand">Saint-Léon-le-Grand</a>
-          <a href="/picard">Picard</a>
-          <a href="/saint-andre-de-kamouraska">Saint-André-de-Kamouraska</a>
+          <a href="/saint-gabriel-lalemant">Saint-Gabriel-Lalemant</a>
+          <a href="/saint-pacome">Saint-Pacôme</a>
+          <a href="/grosses-roches">Grosses-Roches</a>
           <a href="/amqui">Amqui</a>
-          <a href="/sainte-rita">Sainte-Rita</a>
-          <a href="/grand-metis">Grand-Métis</a>
-          <a href="/saint-narcisse-de-rimouski">Saint-Narcisse-de-Rimouski</a>
-          <a href="/degelis">Dégelis</a>
-          <a href="/saint-jean-de-cherbourg">Saint-Jean-de-Cherbourg</a>
-          <a href="/lac-alfred">Lac-Alfred</a>
-          <a href="/saint-alexandre-de-kamouraska">Saint-Alexandre-de-Kamouraska</a>
-          <a href="/saint-michel-du-squatec">Saint-Michel-du-Squatec</a>
+          <a href="/causapscal">Causapscal</a>
+          <a href="/esprit-saint">Esprit-Saint</a>
+          <a href="/petit-lac-sainte-anne">Petit-Lac-Sainte-Anne</a>
+          <a href="/sainte-francoise">Sainte-Françoise</a>
           <a href="/saint-joseph-de-lepage">Saint-Joseph-de-Lepage</a>
+          <a href="/sayabec">Sayabec</a>
+          <a href="/rimouski">Rimouski</a>
+          <a href="/saint-ulric">Saint-Ulric</a>
+          <a href="/saint-marcellin">Saint-Marcellin</a>
+          <a href="/saint-noel">Saint-Noël</a>
+          <a href="/packington">Packington</a>
         </div>
       </div>
 

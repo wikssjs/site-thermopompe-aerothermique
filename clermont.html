@@ -37,7 +37,7 @@
         "name": "Clermont",
         "containedInPlace": {
           "@type": "AdministrativeArea",
-          "name": "Abitibi-Témiscamingue (08)"
+          "name": "Capitale-Nationale (03)"
         }
       },
       "priceRange": "$$-$$$$",
@@ -59,8 +59,8 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Abitibi-Témiscamingue (08)",
-          "item": "https://thermopompe-aerothermique.ca/region/abitibi-temiscamingue-08"
+          "name": "Capitale-Nationale (03)",
+          "item": "https://thermopompe-aerothermique.ca/region/capitale-nationale-03"
         },
         {
           "@type": "ListItem",
@@ -127,7 +127,7 @@
     <nav class="el-breadcrumb__inner">
       <a href="/">Accueil</a>
       <span class="el-breadcrumb__sep">›</span>
-      <a href="/region/abitibi-temiscamingue-08">Abitibi-Témiscamingue (08)</a>
+      <a href="/region/capitale-nationale-03">Capitale-Nationale (03)</a>
       <span class="el-breadcrumb__sep">›</span>
       <span class="el-breadcrumb__current">Thermopompe Aérothermique Clermont</span>
     </nav>
@@ -143,7 +143,7 @@
       <div class="el-hero__kicker">
         <div class="el-badge-live">
           <span class="ta-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          15 demandes d'installation cette semaine
+          18 demandes d'installation cette semaine
         </div>
       </div>
 
@@ -269,7 +269,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
     </label>
   </div>
   <p id="projet-error" style="display:none"
-data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
+ data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions les bons installateurs aérothermique."  ></p>
 </div>
 
 
@@ -287,7 +287,8 @@ data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions le
       
 <div class="el-field">
   <label class="el-label">Type de propriété</label>
-  <select name="type-propriete" requireddata-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
+  <select name="type-propriete"
+ required data-err-required="Le type de propriété est nécessaire pour dimensionner votre système aérothermique."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="maison">Maison unifamiliale</option>
     <option value="condo">Condo / Appartement</option>
@@ -302,7 +303,8 @@ data-err-msg="Sélectionnez votre type de projet pour que nous vous envoyions le
       
 <div class="el-field">
   <label class="el-label">Superficie à climatiser / chauffer</label>
-  <select name="superficie" requireddata-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
+  <select name="superficie"
+ required data-err-required="La superficie permet de calculer la puissance du système recommandée."    class="el-select">
     <option value="" disabled selected>Sélectionner…</option>
     <option value="moins-800">Moins de 800 pi²</option>
     <option value="800-1500">800 – 1 500 pi²</option>
@@ -362,7 +364,7 @@ required             style="position:absolute;width:1px;height:1px;overflow:hidd
     </label>
   </div>
   <p id="delai-error" style="display:none"
-data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
+ data-err-msg="Précisez votre délai pour que les installateurs planifient l'intervention aérothermique."  ></p>
 </div>
 
 
@@ -415,7 +417,7 @@ data-err-msg="Précisez votre délai pour que les installateurs planifient l'int
 <div class="el-field">
   <label class="el-label">Prénom et nom</label>
   <input type="text" name="nom"
-placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
+ placeholder="Marie Tremblay" required data-err-required="Votre nom est requis pour que l'installateur vous identifie."    class="el-input">
 </div>
 
 
@@ -423,7 +425,7 @@ placeholder="Marie Tremblay"requireddata-err-required="Votre nom est requis pour
 <div class="el-field">
   <label class="el-label">Courriel</label>
   <input type="email" name="courriel"
-placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique."data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
+ placeholder="marie@exemple.com" required data-err-required="Votre courriel est requis pour recevoir vos soumissions aérothermique." data-err-format="Courriel invalide — vérifiez le format, ex. : nom@exemple.com."    class="el-input">
 </div>
 
 
@@ -431,7 +433,7 @@ placeholder="marie@exemple.com"requireddata-err-required="Votre courriel est req
 <div class="el-field">
   <label class="el-label">Téléphone</label>
   <input type="tel" name="telephone"
-placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent."data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
+ placeholder="514 000-0000" required data-err-required="Votre numéro est requis pour que les installateurs certifiés vous contactent." data-err-format="Numéro invalide — 10 chiffres, ex. : 514 000-0000."    class="el-input">
 </div>
 
 
@@ -439,7 +441,7 @@ placeholder="514 000-0000"requireddata-err-required="Votre numéro est requis po
 <div class="el-field">
   <label class="el-label">Informations supplémentaires</label>
   <textarea name="commentaires" rows="3"
-placeholder="Ex : superficie du logement, type de chauffage actuel, questions sur les subventions..."    class="el-textarea"></textarea>
+ placeholder="Ex : superficie du logement, type de chauffage actuel, questions sur les subventions..."    class="el-textarea"></textarea>
 </div>
 
 
@@ -518,18 +520,18 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
   <div class="el-wrap-sm">
     <div class="ta-city-intro">
       <section>
-  <h2>Thermopompe aérothermique : le vrai calcul de rentabilité en région de Clermont</h2>
-  <p>Le chauffage électrique direct domine en Abitibi-Témiscamingue (08), et c'est justement ce qui rend une thermopompe aérothermique particulièrement intéressante pour les propriétaires de Clermont. Quand les factures d'électricité grimpent à cause d'un hiver de 6 000 degrés-jours de chauffage, passer à une pompe performante peut réduire cette consommation de 30 à 50 %, selon l'isolation et le modèle choisi. Rénoclimat offre des subventions qui couvrent souvent 25 à 35 % du coût matériel pour une installation performante, et LogisVert d'Hydro-Québec ajoute des montants supplémentaires si l'appareil respecte les critères d'efficacité saisonnière. Le retour sur investissement réaliste en région de Clermont se situe généralement entre 7 et 12 ans, mais cet horizon raccourcit si vous remplacez aussi un vieux climatiseur d'été ou un chauffage au propane — deux dépenses distinctes éliminées d'un coup.</p>
+  <h2>Performances à froid : comment une aérothermique « cold climate » survit aux janvier de Clermont</h2>
+  <p>Les hivers de la Capitale-Nationale (03) ne sont pas une surprise : minimales autour de -11 °C en moyenne, avec des pics réguliers sous -20 °C sur le plateau et en direction de l'intérieur où se situe Clermont. Une thermopompe aérothermique standard s'essoufle rapidement à ces températures. Les modèles certifiés pour fonctionner jusqu'à -25 °C ou -30 °C changent tout, notamment grâce à des compresseurs renforcés et à un cycle de dégivrage optimisé. Concrètement, en janvier chez vous, l'appareil maintient un COP (coefficient de performance) acceptable même lors des pics de froid, réduisant le recours aux résistances électriques d'appoint—celles qui font monter la facture. La génération précédente perdait 40 à 50 % d'efficacité sous -20 °C; les modèles actuels restent performants, ce qui fait toute la différence sur une région où le chauffage électrique domine largement et où les DJC annuels avoisinent 4 500 à 5 000.</p>
 </section>
 
 <section>
-  <h2>Résister à -25 °C : les thermopompes actuelles changent la donne hivernale à Clermont</h2>
-  <p>Les minimales moyennes de janvier en Abitibi-Témiscamingue (08) frôlent -22 à -26 °C selon les années, avec des chutes régulières sous -20 °C. Les modèles de thermopompe haute performance sortis depuis 2021 (Mitsubishi, Daikin, Fujitsu de série H) maintiennent un coefficient de performance respectable même à -25 °C, là où les générations 2015-2018 voyaient leurs capacités fondre de 40 %. Concrètement, cela signifie que votre système continue à chauffer efficacement en janvier à Clermont sans basculer systématiquement sur la résistance électrique d'appoint. Les cycles de dégivrage sont aussi plus rapides et moins consommateurs, ce qui économise encore quelques points de pourcentage sur la facture annuelle. Cette amélioration technologique est décisive : elle transforme une thermopompe de solution saisonnière en chauffage principal fiable, même lors des vagues de froid.</p>
+  <h2>Une seule machine pour deux saisons : pourquoi le contexte de Clermont justifie vraiment la thermopompe</h2>
+  <p>Remplacer un climatiseur de fenêtre et un chauffage électrique par un seul appareil mural ou central n'est pas juste une économie de place. Dans la Capitale-Nationale (03), les étés connaissent des épisodes de canicule qui obligent à refroidir, tandis que les hivers exigent une vraie puissance de chauffage : c'est le profil parfait pour une aérothermique réversible. Un seul contrat d'entretien annuel, une seule garantie de compresseur à gérer, un thermostat unifié—cela simplifie l'administration de votre maison et réduit les coûts de maintenance à long terme. Les maisons unifamiliales de 1 000 à 2 000 pi² que l'on rencontre fréquemment en périphérie de Clermont s'adaptent particulièrement bien à une thermopompe murale multizone ou à un système central si le réseau aéraulique existe. Vous éliminez aussi la dépendance à deux sources d'énergie différentes, ce qui renforce votre autonomie lors des pics tarifaires d'hiver.</p>
 </section>
 
 <section>
-  <h2>Un seul appareil pour climatiser l'été et chauffer l'hiver : logique économique en Abitibi-Témiscamingue (08)</h2>
-  <p>Les propriétaires de Clermont qui possèdent à la fois un vieux climatiseur de fenêtre et un chauffage électrique souvent oublient qu'une thermopompe réversible remplace les deux en un seul appareil et un seul contrat d'entretien annuel. Malgré les hivers longs et rigoureux, les canicules estivales deviennent plus fréquentes en région — les étés à +25-28 °C régulièrement, avec des pointes à +30 °C, ne sont plus exceptionnels. Consolider ces deux systèmes éparpillés en une solution unique diminue la surface du boîtier extérieur, réduit l'encombrement visuel, simplifie la maintenance préventive et élimine les appels à deux prestataires différents. Le coût unique de remplacement s'amortit sur deux services rendus simultanément, une réalité financière trop souvent passée inaperçue lors du choix initial.</p>
+  <h2>Le vrai retour sur investissement : chiffrer votre économie avec les subventions disponibles</h2>
+  <p>Le coût initial d'une thermopompe performante « cold climate » freine souvent, mais les incitatifs de la Capitale-Nationale (03) changent l'équation. Rénoclimat offre des montants variables selon la mesure et l'efficacité atteinte; Hydro-Québec LogisVert complète souvent le dossier pour les installations reconnues. Au fédéral, l'Initiative canadienne pour des maisons plus vertes ou la Rénovation énergétique plus verte peuvent s'ajouter selon votre profil. Ensuite, l'exploitation : une aérothermique bien dimensionnée consomme 30 à 40 % moins d'électricité qu'un système de chauffage électrique classique, voire davantage si vous remplacez du propane ou du mazout—sources minoritaires mais toujours présentes sur des maisons anciennes en périphérie de Clermont. Sur une saison de chauffage de 4 500 à 5 000 DJC, cette économie s'accumule vite. Planifier dès le printemps permet d'avoir les devis et subventions prêts pour l'automne, sans précipitation.</p>
 </section>
     </div>
   </div>
@@ -867,28 +869,28 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         </p>
         <div class="el-footer__pulse-row">
           <span class="ta-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          15 demandes d'installation cette semaine
+          18 demandes d'installation cette semaine
         </div>
       </div>
 
       <div>
-        <h4 class="el-footer__col-label">Thermopompe en Abitibi-Témiscamingue (08)</h4>
+        <h4 class="el-footer__col-label">Thermopompe en Capitale-Nationale (03)</h4>
         <div class="el-footer__links">
-          <a href="/matchi-manitou">Matchi-Manitou</a>
-          <a href="/bearn">Béarn</a>
-          <a href="/laforce">Laforce</a>
-          <a href="/la-corne">La Corne</a>
-          <a href="/ville-marie">Ville-Marie</a>
-          <a href="/les-lacs-du-temiscamingue">Les Lacs-du-Témiscamingue</a>
-          <a href="/lac-granet">Lac-Granet</a>
-          <a href="/rapide-danseur">Rapide-Danseur</a>
-          <a href="/sainte-gertrude-manneville">Sainte-Gertrude-Manneville</a>
-          <a href="/lorrainville">Lorrainville</a>
-          <a href="/roquemaure">Roquemaure</a>
-          <a href="/guerin">Guérin</a>
-          <a href="/kebaowek">Kebaowek</a>
-          <a href="/berry">Berry</a>
-          <a href="/val-saint-gilles">Val-Saint-Gilles</a>
+          <a href="/sainte-brigitte-de-laval">Sainte-Brigitte-de-Laval</a>
+          <a href="/cap-sante">Cap-Santé</a>
+          <a href="/portneuf">Portneuf</a>
+          <a href="/l-ancienne-lorette">L'Ancienne-Lorette</a>
+          <a href="/wendake">Wendake</a>
+          <a href="/lac-sergent">Lac-Sergent</a>
+          <a href="/saint-marc-des-carrieres">Saint-Marc-des-Carrières</a>
+          <a href="/lac-delage">Lac-Delage</a>
+          <a href="/saint-pierre-de-l-ile-d-orleans">Saint-Pierre-de-l'Île-d'Orléans</a>
+          <a href="/saint-laurent-de-l-ile-d-orleans">Saint-Laurent-de-l'Île-d'Orléans</a>
+          <a href="/saint-gilbert">Saint-Gilbert</a>
+          <a href="/saint-joachim">Saint-Joachim</a>
+          <a href="/mont-elie">Mont-Élie</a>
+          <a href="/sainte-catherine-de-la-jacques-cartier">Sainte-Catherine-de-la-Jacques-Cartier</a>
+          <a href="/saint-urbain">Saint-Urbain</a>
         </div>
       </div>
 
@@ -896,7 +898,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
         <h4 class="el-footer__col-label">Navigation</h4>
         <nav class="el-footer__nav">
           <a href="/">Accueil</a>
-          <a href="/region/abitibi-temiscamingue-08">Abitibi-Témiscamingue (08)</a>
+          <a href="/region/capitale-nationale-03">Capitale-Nationale (03)</a>
           <a href="/sitemap-index.xml">Plan du site XML</a>
         </nav>
       </div>
@@ -905,7 +907,7 @@ placeholder="Ex : superficie du logement, type de chauffage actuel, questions su
 
     <div class="el-footer__bottom">
       <p>© 2026 Thermopompe Aérothermique Québec · Tous droits réservés</p>
-      <p>Thermopompe Aérothermique · Clermont · Abitibi-Témiscamingue (08)</p>
+      <p>Thermopompe Aérothermique · Clermont · Capitale-Nationale (03)</p>
     </div>
   </div>
 </footer>
